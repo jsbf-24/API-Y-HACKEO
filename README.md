@@ -21,7 +21,7 @@ OPERACIONES CRUD COMPLETAS
 Se pueden listar todos los usuarios con GET /users, obtener un usuario específico por ID, actualizar información con PUT , pero no se puede actualizar la contraseña excepto la contraseña(para eso solo es necesario usar un bloque if extra en el update), y eliminar usuarios con DELETE.
 
 PRUEBAS DE SEGURIDAD
-El script de ataque demuestra vulnerabilidades como la exposición de contraseñas en texto plano. Este se conecta a la API para extraer y mostrar todas las credenciales almacenadas.
+El script de ataque demuestra vulnerabilidades como la exposición de contraseñas en texto plano. Este se conecta a la API para extraer y mostrar todas las credenciales almacenadas. Una falla de seguridad de esta API es EL RETORNO DE CONTRASEÑAS en donde se utiliza "response_model=User" donde directamente se muestra la contraseña.
 
 PRUEBAS
 *PRUEBA 1
@@ -29,9 +29,10 @@ Al ingresar un usuario unico el codigo determina y representa rapidamente las cr
 datos con el endpoint update al correr nuevamente el script se revelan los datos.
 
 *PRUEBA 2
-Al ingresar multiples usuarios el resultado es igual, el calculo se realiza en menos de un segundo e independientemente de el número de usuarios el codigo es capaz de sacar la información
+Al ingresar multiples usuarios el resultado es igual, el calculo se realiza en menos de un segundo e independientemente de el número de usuarios el codigo es capaz de sacar la información. 
 
 La API está diseñada para demostrar vulnerabilidades comunes en sistemas de autenticación, haciendo evidente la importancia de prácticas como verificación de dos pasos aparte de las contraseñas y la implementación de controles de acceso adecuados para evitar este tipo de vulnerabilidades en la seguridad de sistemas futuros.
+
 
 
 
