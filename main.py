@@ -6,7 +6,7 @@ app = FastAPI(title="API DE JUAN")
 
 #funciones de usuarios y modificación
 class User(SQLModel):
-    id: int | None = None
+    id: int | None =None
     username: str
     password: str
     email: str | None = None
@@ -80,7 +80,7 @@ def delete_user(user_id: int):
             return {"message": "Usuario eliminado"}
     raise HTTPException(status_code=404, detail="Usuario no encontrado")
 
-
+@app.get("/login") 
 @app.post("/login")
 def login(username: str, password: str):
     for u in users_db:
@@ -88,5 +88,7 @@ def login(username: str, password: str):
             return {"message": "Login exitoso", "user": u.username}
     raise HTTPException(status_code=401, detail="Credenciales inválidas")
 
-
 #jsbf-24
+
+
+
