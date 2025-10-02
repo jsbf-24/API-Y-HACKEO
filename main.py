@@ -6,7 +6,7 @@ app = FastAPI(title="API DE JUAN")
 
 #funciones de usuarios y modificación
 class User(SQLModel):
-    id: int | None = Field(default=None, primary_key=True)
+    id: int | None = None
     username: str
     password: str
     email: str | None = None
@@ -87,5 +87,6 @@ def login(username: str, password: str):
         if u.username == username and u.password == password:
             return {"message": "Login exitoso", "user": u.username}
     raise HTTPException(status_code=401, detail="Credenciales inválidas")
+
 
 #jsbf-24
